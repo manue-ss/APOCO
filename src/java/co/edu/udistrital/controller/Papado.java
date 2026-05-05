@@ -1,11 +1,11 @@
-package co.edu.udistrital.controler;
+package co.edu.udistrital.controller;
 
 import co.edu.udistrital.model.Papa;
 import co.edu.udistrital.model.Persona;
-import co.edu.udistrital.model.listas.ListaEnlazadaSimpleCircular;
-import co.edu.udistrital.model.listas.ListaEnlazadaSimple;
-import co.edu.udistrital.model.listas.ListaEnlazadaDoble;
-import vaticrimen.papado.estrategia.*;
+import co.edu.udistrital.util.listas.ListaEnlazadaSimpleCircular;
+import co.edu.udistrital.util.listas.ListaEnlazadaSimple;
+import co.edu.udistrital.util.listas.ListaEnlazadaDoble;
+import co.edu.udistrital.util.algoritmos.*;
 import java.time.LocalDate;
 import java.util.Comparator; // Importar Comparator
 import java.util.Objects;

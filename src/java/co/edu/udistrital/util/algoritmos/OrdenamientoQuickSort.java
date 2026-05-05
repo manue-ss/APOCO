@@ -2,9 +2,9 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package co.edu.udistrital.model.algoritmos;
-import vaticrimen.papado.Nodo;
-import vaticrimen.papado.ListaEnlazadaSimple;
+package co.edu.udistrital.util.algoritmos;
+import co.edu.udistrital.util.listas.NodoDoble;
+import co.edu.udistrital.util.listas.ListaEnlazadaDoble;
 import java.util.Objects;
 
 /**
@@ -15,7 +15,7 @@ import java.util.Objects;
  *
  * <p><b>Nota Importante:</b> Esta implementación específica utiliza el <strong>último elemento</strong>
  * de la (sub)lista como pivote e intercambia los <strong>datos</strong> contenidos en los nodos,
- * no los nodos en sí. Por lo tanto, requiere que la clase {@link Nodo} posea un método {@code setDato(T)}.</p>
+ * no los nodos en sí. Por lo tanto, requiere que la clase {@link NodoDoble} posea un método {@code setDato(T)}.</p>
  * <p>QuickSort en listas enlazadas puede ser menos eficiente que en arrays debido a la dificultad
  * de acceso aleatorio y la complejidad de la partición.</p>
  *
@@ -32,21 +32,21 @@ public class OrdenamientoQuickSort<T extends Comparable<T>> implements Estrategi
      * Ordena la lista dada usando el algoritmo Quick Sort, usando el último nodo como pivote
      * y realizando intercambio de datos.
      *
-     * @param lista La lista {@link ListaEnlazadaSimple} a ordenar. No debe ser null.
+     * @param lista La lista {@link ListaEnlazadaDoble} a ordenar. No debe ser null.
      * @throws NullPointerException si {@code lista} es null.
      * @throws ClassCastException si los elementos no son {@code Comparable}.
-     * @throws UnsupportedOperationException si {@link Nodo#setDato(Object)} no está disponible (implícito).
+     * @throws UnsupportedOperationException si {@link NodoDoble#setDato(Object)} no está disponible (implícito).
      */
     @Override
-    public void ordenar(ListaEnlazadaSimple<T> lista) {
+    public void ordenar(ListaEnlazadaDoble<T> lista) {
         Objects.requireNonNull(lista, "La lista a ordenar no puede ser null.");
 
         if (lista.getTamanno() <= 1) {
             return; // Nada que ordenar
         }
 
-        Nodo<T> cabeza = lista.getCabeza();
-        Nodo<T> cola = encontrarCola(cabeza); // Necesitamos la cola para el pivote inicial
+        NodoDoble<T> cabeza = lista.getCabeza();
+        NodoDoble<T> cola = encontrarCola(cabeza); // Necesitamos la cola para el pivote inicial
 
         quickSortRecursivo(cabeza, cola);
 
@@ -61,9 +61,9 @@ public class OrdenamientoQuickSort<T extends Comparable<T>> implements Estrategi
      * Encuentra el último nodo (cola) de una lista enlazada simple.
      *
      * @param nodo El nodo desde el cual empezar a buscar (normalmente la cabeza).
-     * @return El último {@link Nodo} de la lista, o {@code null} si el nodo inicial es {@code null}.
+     * @return El último {@link NodoDoble} de la lista, o {@code null} si el nodo inicial es {@code null}.
      */
-    private Nodo<T> encontrarCola(Nodo<T> nodo) {
+    private NodoDoble<T> encontrarCola(NodoDoble<T> nodo) {
         if (nodo == null) {
             return null;
         }
@@ -80,7 +80,7 @@ public class OrdenamientoQuickSort<T extends Comparable<T>> implements Estrategi
      * @param cabezaSubLista El primer nodo de la (sub)lista a ordenar.
      * @param colaSubLista El último nodo (pivote) de la (sub)lista a ordenar.
      */
-    private void quickSortRecursivo(Nodo<T> cabezaSubLista, Nodo<T> colaSubLista) {
+    private void quickSortRecursivo(NodoDoble<T> cabezaSubLista, NodoDoble<T> colaSubLista) {
         // Condiciones de parada de la recursión:
         // 1. La sublista es inválida (null).
         // 2. La sublista tiene 0 o 1 elemento (cabeza == cola).
@@ -92,9 +92,9 @@ public class OrdenamientoQuickSort<T extends Comparable<T>> implements Estrategi
         // 1. Particionar la sublista y obtener la nueva posición del pivote
         //    'resultadoParticion[0]' es el nodo pivote en su posición final.
         //    'resultadoParticion[1]' es el nodo justo antes del pivote final.
-        Nodo<T>[] resultadoParticion = particionar(cabezaSubLista, colaSubLista);
-        Nodo<T> nodoPivoteFinal = resultadoParticion[0];
-        Nodo<T> nodoAntesPivote = resultadoParticion[1];
+        NodoDoble<T>[] resultadoParticion = particionar(cabezaSubLista, colaSubLista);
+        NodoDoble<T> nodoPivoteFinal = resultadoParticion[0];
+        NodoDoble<T> nodoAntesPivote = resultadoParticion[1];
 
         // 2. Llamar recursivamente para ordenar la sublista a la izquierda del pivote
         //    La sublista izquierda va desde 'cabezaSubLista' hasta 'nodoAntesPivote'.
@@ -121,18 +121,18 @@ public class OrdenamientoQuickSort<T extends Comparable<T>> implements Estrategi
      *
      * @param cabeza El primer nodo de la (sub)lista a particionar.
      * @param cola El último nodo (pivote) de la (sub)lista a particionar.
-     * @return Un array de {@link Nodo}: {@code [nodoPivoteFinal, nodoAntesDelPivoteFinal]}.
+     * @return Un array de {@link NodoDoble}: {@code [nodoPivoteFinal, nodoAntesDelPivoteFinal]}.
      *         El {@code nodoAntesDelPivoteFinal} puede ser {@code null} si el pivote termina en la cabeza.
-     * @throws UnsupportedOperationException si {@link Nodo#setDato(Object)} no está disponible (implícito).
+     * @throws UnsupportedOperationException si {@link NodoDoble#setDato(Object)} no está disponible (implícito).
      */
-    private Nodo<T>[] particionar(Nodo<T> cabeza, Nodo<T> cola) {
+    private NodoDoble<T>[] particionar(NodoDoble<T> cabeza, NodoDoble<T> cola) {
         // No necesita verificar null aquí si se llama desde quickSortRecursivo con validación previa.
         T valorPivote = cola.getDato();
 
         // 'i' rastrea la posición donde debería ir el siguiente elemento menor que el pivote.
         // Inicialmente está "antes" de la cabeza.
-        Nodo<T> i = null;
-        Nodo<T> actual = cabeza;
+        NodoDoble<T> i = null;
+        NodoDoble<T> actual = cabeza;
 
         // Recorrer hasta el nodo ANTES de la cola (pivote)
         while (actual != cola) {
@@ -168,9 +168,9 @@ public class OrdenamientoQuickSort<T extends Comparable<T>> implements Estrategi
 
 
         // Encontrar el nodo antes de 'i' (la posición final del pivote)
-        Nodo<T> nodoAntesPivote = null;
+        NodoDoble<T> nodoAntesPivote = null;
         if (i != cabeza) {
-            Nodo<T> buscador = cabeza;
+            NodoDoble<T> buscador = cabeza;
             while (buscador != null && buscador.getSiguiente() != i) {
                 buscador = buscador.getSiguiente();
             }
@@ -179,7 +179,7 @@ public class OrdenamientoQuickSort<T extends Comparable<T>> implements Estrategi
 
         // Devolver el nodo donde quedó el pivote ('i') y el nodo anterior a él.
         @SuppressWarnings("unchecked")
-        Nodo<T>[] resultado = (Nodo<T>[]) new Nodo<?>[2];
+        NodoDoble<T>[] resultado = (NodoDoble<T>[]) new NodoDoble<?>[2];
         resultado[0] = i;               // Nodo pivote en posición final
         resultado[1] = nodoAntesPivote; // Nodo antes del pivote final
         return resultado;

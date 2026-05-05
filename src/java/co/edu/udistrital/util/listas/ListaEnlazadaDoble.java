@@ -2,29 +2,38 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package co.edu.udistrital.model.listas;
+package co.edu.udistrital.util.listas;
 
 import java.util.NoSuchElementException;
 import java.util.Objects;
 
 /**
- * Implementación de una lista doblemente enlazada genérica.
- * Cada nodo mantiene referencias al nodo anterior y al siguiente, permitiendo
- * recorrido bidireccional y operaciones eficientes (O(1)) de inserción/eliminación
- * en ambos extremos (cabeza y cola).
+ * Implementación de una lista doblemente enlazada genérica. Cada nodo mantiene
+ * referencias al nodo anterior y al siguiente, permitiendo recorrido
+ * bidireccional y operaciones eficientes (O(1)) de inserción/eliminación en
+ * ambos extremos (cabeza y cola).
  *
  * @param <T> El tipo de elementos almacenados en la lista.
+ *
  * @see NodoDoble
  * @author devapps
  * @version 1.2
  */
 public class ListaEnlazadaDoble<T> {
 
-    /** Referencia al primer nodo de la lista (cabeza). {@code null} si la lista está vacía. */
+    /**
+     * Referencia al primer nodo de la lista (cabeza). {@code null} si la lista
+     * está vacía.
+     */
     private NodoDoble<T> cabeza;
-    /** Referencia al último nodo de la lista (cola). {@code null} si la lista está vacía. */
+    /**
+     * Referencia al último nodo de la lista (cola). {@code null} si la lista
+     * está vacía.
+     */
     private NodoDoble<T> cola;
-    /** Número actual de elementos en la lista. */
+    /**
+     * Número actual de elementos en la lista.
+     */
     private int tamanno;
 
     /**
@@ -37,9 +46,9 @@ public class ListaEnlazadaDoble<T> {
     }
 
     // --- Información Básica ---
-
     /**
      * Devuelve el número de elementos en la lista.
+     *
      * @return El tamaño actual de la lista.
      */
     public int getTamanno() {
@@ -48,17 +57,19 @@ public class ListaEnlazadaDoble<T> {
 
     /**
      * Comprueba si la lista está vacía.
-     * @return {@code true} si la lista no tiene elementos, {@code false} en caso contrario.
+     *
+     * @return {@code true} si la lista no tiene elementos, {@code false} en
+     *         caso contrario.
      */
     public boolean estaVacia() {
         return tamanno == 0;
     }
 
     // --- Métodos de Inserción ---
-
     /**
-     * Inserta un elemento al principio de la lista (nueva cabeza).
-     * Operación de tiempo constante O(1).
+     * Inserta un elemento al principio de la lista (nueva cabeza). Operación de
+     * tiempo constante O(1).
+     *
      * @param dato El dato a insertar.
      */
     public void insertarAlInicio(T dato) {
@@ -77,8 +88,9 @@ public class ListaEnlazadaDoble<T> {
     }
 
     /**
-     * Inserta un elemento al final de la lista (nueva cola).
-     * Operación de tiempo constante O(1).
+     * Inserta un elemento al final de la lista (nueva cola). Operación de
+     * tiempo constante O(1).
+     *
      * @param dato El dato a insertar.
      */
     public void insertarAlFinal(T dato) {
@@ -97,6 +109,7 @@ public class ListaEnlazadaDoble<T> {
 
     /**
      * Alias conveniente para {@link #insertarAlFinal(Object)}.
+     *
      * @param dato El dato a agregar al final.
      */
     public void agregar(T dato) {
@@ -104,14 +117,17 @@ public class ListaEnlazadaDoble<T> {
     }
 
     /**
-     * Inserta un nuevo elemento {@code datoNuevo} inmediatamente después de la primera
-     * ocurrencia del nodo que contiene {@code datoExistente}.
-     * Si {@code datoExistente} no se encuentra, la lista no se modifica.
-     * La búsqueda es O(n).
+     * Inserta un nuevo elemento {@code datoNuevo} inmediatamente después de la
+     * primera ocurrencia del nodo que contiene {@code datoExistente}. Si
+     * {@code datoExistente} no se encuentra, la lista no se modifica. La
+     * búsqueda es O(n).
      *
-     * @param datoExistente El dato del nodo referencia. Se compara usando {@code equals()}.
-     * @param datoNuevo El dato a insertar.
-     * @return {@code true} si la inserción fue exitosa, {@code false} si {@code datoExistente} no fue encontrado.
+     * @param datoExistente El dato del nodo referencia. Se compara usando
+     *                      {@code equals()}.
+     * @param datoNuevo     El dato a insertar.
+     *
+     * @return {@code true} si la inserción fue exitosa, {@code false} si
+     *         {@code datoExistente} no fue encontrado.
      */
     public boolean insertarDespuesDe(T datoExistente, T datoNuevo) {
         NodoDoble<T> nodoExistente = buscarNodo(datoExistente);
@@ -137,15 +153,18 @@ public class ListaEnlazadaDoble<T> {
     }
 
     /**
-     * Inserta un nuevo elemento {@code datoNuevo} inmediatamente antes de la primera
-     * ocurrencia del nodo que contiene {@code datoExistente}.
-     * Si {@code datoExistente} es la cabeza, equivale a {@link #insertarAlInicio(Object)}.
-     * Si {@code datoExistente} no se encuentra, la lista no se modifica.
-     * La búsqueda es O(n).
+     * Inserta un nuevo elemento {@code datoNuevo} inmediatamente antes de la
+     * primera ocurrencia del nodo que contiene {@code datoExistente}. Si
+     * {@code datoExistente} es la cabeza, equivale a
+     * {@link #insertarAlInicio(Object)}. Si {@code datoExistente} no se
+     * encuentra, la lista no se modifica. La búsqueda es O(n).
      *
-     * @param datoExistente El dato del nodo referencia. Se compara usando {@code equals()}.
-     * @param datoNuevo El dato a insertar.
-     * @return {@code true} si la inserción fue exitosa, {@code false} si {@code datoExistente} no fue encontrado.
+     * @param datoExistente El dato del nodo referencia. Se compara usando
+     *                      {@code equals()}.
+     * @param datoNuevo     El dato a insertar.
+     *
+     * @return {@code true} si la inserción fue exitosa, {@code false} si
+     *         {@code datoExistente} no fue encontrado.
      */
     public boolean insertarAntesDe(T datoExistente, T datoNuevo) {
         NodoDoble<T> nodoExistente = buscarNodo(datoExistente);
@@ -171,12 +190,12 @@ public class ListaEnlazadaDoble<T> {
     }
 
     // --- Métodos de Eliminación ---
-
     /**
      * Elimina y devuelve el elemento al principio de la lista (cabeza).
      * Operación de tiempo constante O(1).
      *
      * @return El dato del elemento eliminado.
+     *
      * @throws NoSuchElementException si la lista está vacía.
      */
     public T eliminarAlInicio() {
@@ -203,10 +222,11 @@ public class ListaEnlazadaDoble<T> {
     }
 
     /**
-     * Elimina y devuelve el elemento al final de la lista (cola).
-     * Operación de tiempo constante O(1).
+     * Elimina y devuelve el elemento al final de la lista (cola). Operación de
+     * tiempo constante O(1).
      *
      * @return El dato del elemento eliminado.
+     *
      * @throws NoSuchElementException si la lista está vacía.
      */
     public T eliminarAlFinal() {
@@ -232,11 +252,14 @@ public class ListaEnlazadaDoble<T> {
     }
 
     /**
-     * Elimina la primera ocurrencia del elemento especificado {@code dato} de la lista.
-     * Utiliza {@code equals()} para la comparación. La búsqueda es O(n).
+     * Elimina la primera ocurrencia del elemento especificado {@code dato} de
+     * la lista. Utiliza {@code equals()} para la comparación. La búsqueda es
+     * O(n).
      *
      * @param dato El dato del elemento a eliminar.
-     * @return {@code true} si el elemento fue encontrado y eliminado, {@code false} en caso contrario.
+     *
+     * @return {@code true} si el elemento fue encontrado y eliminado,
+     *         {@code false} en caso contrario.
      */
     public boolean eliminar(T dato) {
         NodoDoble<T> nodoAEliminar = buscarNodo(dato);
@@ -249,13 +272,16 @@ public class ListaEnlazadaDoble<T> {
     }
 
     /**
-     * Elimina y devuelve el elemento que se encuentra inmediatamente después de la primera
-     * ocurrencia del nodo que contiene {@code datoExistente}.
-     * Si {@code datoExistente} no se encuentra, o si es la cola, no se elimina nada.
-     * La búsqueda es O(n).
+     * Elimina y devuelve el elemento que se encuentra inmediatamente después de
+     * la primera ocurrencia del nodo que contiene {@code datoExistente}. Si
+     * {@code datoExistente} no se encuentra, o si es la cola, no se elimina
+     * nada. La búsqueda es O(n).
      *
-     * @param datoExistente El dato del nodo referencia. Se compara usando {@code equals()}.
-     * @return El dato del nodo eliminado, o {@code null} si no se pudo realizar la eliminación.
+     * @param datoExistente El dato del nodo referencia. Se compara usando
+     *                      {@code equals()}.
+     *
+     * @return El dato del nodo eliminado, o {@code null} si no se pudo realizar
+     *         la eliminación.
      */
     public T eliminarDespuesDe(T datoExistente) {
         NodoDoble<T> nodoExistente = buscarNodo(datoExistente);
@@ -270,13 +296,16 @@ public class ListaEnlazadaDoble<T> {
     }
 
     /**
-     * Elimina y devuelve el elemento que se encuentra inmediatamente antes de la primera
-     * ocurrencia del nodo que contiene {@code datoExistente}.
-     * Si {@code datoExistente} no se encuentra, o si es la cabeza, no se elimina nada.
-     * La búsqueda es O(n).
+     * Elimina y devuelve el elemento que se encuentra inmediatamente antes de
+     * la primera ocurrencia del nodo que contiene {@code datoExistente}. Si
+     * {@code datoExistente} no se encuentra, o si es la cabeza, no se elimina
+     * nada. La búsqueda es O(n).
      *
-     * @param datoExistente El dato del nodo referencia. Se compara usando {@code equals()}.
-     * @return El dato del nodo eliminado, o {@code null} si no se pudo realizar la eliminación.
+     * @param datoExistente El dato del nodo referencia. Se compara usando
+     *                      {@code equals()}.
+     *
+     * @return El dato del nodo eliminado, o {@code null} si no se pudo realizar
+     *         la eliminación.
      */
     public T eliminarAntesDe(T datoExistente) {
         NodoDoble<T> nodoExistente = buscarNodo(datoExistente);
@@ -291,10 +320,9 @@ public class ListaEnlazadaDoble<T> {
     }
 
     // --- Otras Utilidades ---
-
     /**
-     * Elimina todos los elementos de la lista, dejándola vacía.
-     * Anula las referencias cabeza y cola, y establece el tamaño a 0.
+     * Elimina todos los elementos de la lista, dejándola vacía. Anula las
+     * referencias cabeza y cola, y establece el tamaño a 0.
      */
     public void borrarLista() {
         // Podríamos iterar y anular todos los punteros, pero para Java,
@@ -306,11 +334,12 @@ public class ListaEnlazadaDoble<T> {
     }
 
     /**
-     * Crea y devuelve una copia superficial (shallow copy) de esta lista.
-     * Se crean nuevos nodos {@link NodoDoble}, pero contienen referencias a los mismos
-     * objetos de datos que la lista original.
+     * Crea y devuelve una copia superficial (shallow copy) de esta lista. Se
+     * crean nuevos nodos {@link NodoDoble}, pero contienen referencias a los
+     * mismos objetos de datos que la lista original.
      *
-     * @return Una nueva instancia de {@code ListaEnlazadaDoble} con los mismos datos.
+     * @return Una nueva instancia de {@code ListaEnlazadaDoble} con los mismos
+     *         datos.
      */
     public ListaEnlazadaDoble<T> clonarLista() {
         ListaEnlazadaDoble<T> clon = new ListaEnlazadaDoble<>();
@@ -324,8 +353,8 @@ public class ListaEnlazadaDoble<T> {
 
     /**
      * Imprime una representación textual de la lista en la consola estándar,
-     * desde la cabeza hasta la cola.
-     * Muestra los elementos separados por " &lt;-&gt; ", indicando HEAD y TAIL.
+     * desde la cabeza hasta la cola. Muestra los elementos separados por "
+     * &lt;-&gt; ", indicando HEAD y TAIL.
      */
     public void imprimir() {
         if (estaVacia()) {
@@ -348,8 +377,8 @@ public class ListaEnlazadaDoble<T> {
 
     /**
      * Imprime una representación textual de la lista en la consola estándar,
-     * desde la cola hasta la cabeza, demostrando el enlace inverso.
-     * Muestra los elementos separados por " &lt;-&gt; ", indicando TAIL y HEAD.
+     * desde la cola hasta la cabeza, demostrando el enlace inverso. Muestra los
+     * elementos separados por " &lt;-&gt; ", indicando TAIL y HEAD.
      */
     public void imprimirReverso() {
         if (estaVacia()) {
@@ -371,13 +400,15 @@ public class ListaEnlazadaDoble<T> {
     }
 
     // --- Métodos Auxiliares Privados ---
-
     /**
      * Busca el primer nodo en la lista que contiene el {@code datoBusqueda}.
-     * Utiliza {@code Objects.equals()} para manejar {@code null} de forma segura.
+     * Utiliza {@code Objects.equals()} para manejar {@code null} de forma
+     * segura.
      *
      * @param datoBusqueda El dato a buscar.
-     * @return El {@link NodoDoble} que contiene el dato, o {@code null} si no se encuentra.
+     *
+     * @return El {@link NodoDoble} que contiene el dato, o {@code null} si no
+     *         se encuentra.
      */
     private NodoDoble<T> buscarNodo(T datoBusqueda) {
         NodoDoble<T> actual = this.cabeza;
@@ -391,12 +422,13 @@ public class ListaEnlazadaDoble<T> {
     }
 
     /**
-     * Elimina el nodo especificado de la lista, actualizando correctamente
-     * los enlaces de sus vecinos (si los tiene) y las referencias cabeza/cola
-     * y el tamaño de la lista si es necesario.
-     * Este método centraliza la lógica de eliminación de nodos.
+     * Elimina el nodo especificado de la lista, actualizando correctamente los
+     * enlaces de sus vecinos (si los tiene) y las referencias cabeza/cola y el
+     * tamaño de la lista si es necesario. Este método centraliza la lógica de
+     * eliminación de nodos.
      *
-     * @param nodoAEliminar El nodo que se va a quitar de la lista (no debe ser null).
+     * @param nodoAEliminar El nodo que se va a quitar de la lista (no debe ser
+     *                      null).
      */
     private void eliminarNodo(NodoDoble<T> nodoAEliminar) {
         // No verificar null aquí, se asume que viene de una búsqueda válida.
@@ -430,4 +462,41 @@ public class ListaEnlazadaDoble<T> {
         nodoAEliminar.setSiguiente(null);
         // nodoAEliminar.setDato(null); // No es estrictamente necesario
     }
+
+    /**
+     * Obtiene el nodo cabeza de la lista.
+     *
+     * @return El {@link NodoDoble} que es la cabeza de la lista.
+     */
+    public NodoDoble<T> getCabeza() {
+        return cabeza;
+    }
+
+    /**
+     * Establece el nodo cabeza de la lista.
+     *
+     * @param cabeza El nuevo {@link NodoDoble} cabeza de la lista.
+     */
+    public void setCabeza(NodoDoble<T> cabeza) {
+        this.cabeza = cabeza;
+    }
+
+    /**
+     * Obtiene el nodo cola de la lista.
+     *
+     * @return El {@link NodoDoble} que es la cola de la lista.
+     */
+    public NodoDoble<T> getCola() {
+        return cola;
+    }
+
+    /**
+     * Establece el nodo cola de la lista.
+     *
+     * @param cola El nuevo {@link NodoDoble} cola de la lista.
+     */
+    public void setCola(NodoDoble<T> cola) {
+        this.cola = cola;
+    }
+
 }
