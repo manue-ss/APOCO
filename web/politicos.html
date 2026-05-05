@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <title>Políticos - APOCO</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="css/manage-style.css">
+</head>
+<body>
+    <div class="main-container">
+        <h1>Gestión de Políticos</h1>
+        
+        <section class="section-box">
+            <h2>Registro Actual</h2>
+            <table class="tabla-estandar">
+                <thead>
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Apellido</th>
+                        <th>Dinero dispuesto a robar</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>Armando</td><td>Paredes</td><td>$500,000,000</td></tr>
+                    <tr><td>Elba</td><td>Lazo</td><td>$1,200,000,000</td></tr>
+                </tbody>
+            </table>
+            
+            <div class="actions">
+                <button class="btn-action">Ejecutar Ordenamiento</button>
+            </div>
+        </section>
+
+        <section class="section-box results">
+            <h2>Tabla Ordenada</h2>
+            <table class="tabla-estandar">
+                <thead>
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Apellido</th>
+                        <th>Dinero dispuesto a robar</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>Armando</td><td>Paredes</td><td>$500,000,000</td></tr>
+                    <tr><td>Elba</td><td>Lazo</td><td>$1,200,000,000</td></tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section class="section-box comparativa-resultados">
+            <h2>🏆 Rendimiento de Algoritmos</h2>
+            <p class="descripcion-ranking">Podio de los 3 mejores tiempos y registro completo de ejecución.</p>
+            
+            <div class="podio-contenedor">
+                <div class="podio-nivel plata" style="height: 150px;">
+                    <div class="podio-puesto">🥈 2</div>
+                    <div class="tooltip">
+                        <strong>Algoritmo:</strong> MergeSort<br>
+                        <strong>Tiempo:</strong> 18 ms<br>
+                        <strong>Iteraciones:</strong> 412
+                    </div>
+                </div>
+
+                <div class="podio-nivel oro" style="height: 210px;">
+                    <div class="podio-puesto">🥇 1</div>
+                    <div class="tooltip">
+                        <strong>Algoritmo:</strong> QuickSort<br>
+                        <strong>Tiempo:</strong> 12 ms<br>
+                        <strong>Iteraciones:</strong> 340
+                    </div>
+                </div>
+
+                <div class="podio-nivel bronce" style="height: 100px;">
+                    <div class="podio-puesto">🥉 3</div>
+                    <div class="tooltip">
+                        <strong>Algoritmo:</strong> Inserción<br>
+                        <strong>Tiempo:</strong> 45 ms<br>
+                        <strong>Iteraciones:</strong> 1,200
+                    </div>
+                </div>
+            </div>
+
+            <table class="tabla-estandar tabla-ranking">
+                <thead>
+                    <tr>
+                        <th>Puesto</th>
+                        <th>Algoritmo</th>
+                        <th>Tiempo de Ejecución</th>
+                        <th>Iteraciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="puesto-oro">
+                        <td>🥇 1</td>
+                        <td>QuickSort</td>
+                        <td>12 ms</td>
+                        <td>340</td>
+                    </tr>
+                    <tr class="puesto-plata">
+                        <td>🥈 2</td>
+                        <td>MergeSort</td>
+                        <td>18 ms</td>
+                        <td>412</td>
+                    </tr>
+                    <tr class="puesto-bronce">
+                        <td>🥉 3</td>
+                        <td>Inserción</td>
+                        <td>45 ms</td>
+                        <td>1,200</td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>Burbuja</td>
+                        <td>145 ms</td>
+                        <td>2,450</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+        
+        <a href="index.html" class="back-link">← Volver al inicio</a>
+    </div>
+</body>
+</html>

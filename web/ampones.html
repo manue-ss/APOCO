@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <title>Ampones - APOCO</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="css/manage-style.css">
+</head>
+<body>
+    <div class="main-container">
+        <h1>Auditorio de Ampones</h1>
+
+        <section class="section-box">
+            <h2>Configurar Sillas</h2>
+            <form class="form-dimensions">
+                <div class="input-group">
+                    <label>Filas:</label>
+                    <input type="number" min="1" value="2">
+                </div>
+                <div class="input-group">
+                    <label>Columnas:</label>
+                    <input type="number" min="1" value="3">
+                </div>
+                <button type="button" class="btn-action red">Generar Auditorio Ordenado</button>
+            </form>
+        </section>
+
+        <section class="section-box results">
+            <h2>Vista del Auditorio (Ordenado)</h2>
+            
+            <div class="auditorio">
+                <div class="silla">
+                    <div class="cara">🦹‍♂️</div>
+                    <div class="tooltip">
+                        <strong>Nombre:</strong> Carlos<br>
+                        <strong>Apellido:</strong> Malo<br>
+                        <strong>Edad:</strong> 45 años<br>
+                        <strong>Robado:</strong> $900M
+                    </div>
+                </div>
+
+                <div class="silla">
+                    <div class="cara">🦹‍♀️</div>
+                    <div class="tooltip">
+                        <strong>Nombre:</strong> Rosa<br>
+                        <strong>Apellido:</strong> Espinosa<br>
+                        <strong>Edad:</strong> 38 años<br>
+                        <strong>Robado:</strong> $750M
+                    </div>
+                </div>
+                
+                <div class="silla">
+                    <div class="cara">🧛‍♂️</div>
+                    <div class="tooltip">
+                        <strong>Nombre:</strong> Brayan<br>
+                        <strong>Apellido:</strong> Peligro<br>
+                        <strong>Edad:</strong> 25 años<br>
+                        <strong>Robado:</strong> $120M
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+        <section class="section-box comparativa-resultados">
+            <h2>🏆 Rendimiento de Algoritmos</h2>
+            <p class="descripcion-ranking">Podio de los 3 mejores tiempos y registro completo de ejecución.</p>
+            
+            <div class="podio-contenedor">
+                <div class="podio-nivel plata" style="height: 150px;">
+                    <div class="podio-puesto">🥈 2</div>
+                    <div class="tooltip">
+                        <strong>Algoritmo:</strong> MergeSort<br>
+                        <strong>Tiempo:</strong> 18 ms<br>
+                        <strong>Iteraciones:</strong> 412
+                    </div>
+                </div>
+
+                <div class="podio-nivel oro" style="height: 210px;">
+                    <div class="podio-puesto">🥇 1</div>
+                    <div class="tooltip">
+                        <strong>Algoritmo:</strong> QuickSort<br>
+                        <strong>Tiempo:</strong> 12 ms<br>
+                        <strong>Iteraciones:</strong> 340
+                    </div>
+                </div>
+
+                <div class="podio-nivel bronce" style="height: 100px;">
+                    <div class="podio-puesto">🥉 3</div>
+                    <div class="tooltip">
+                        <strong>Algoritmo:</strong> Inserción<br>
+                        <strong>Tiempo:</strong> 45 ms<br>
+                        <strong>Iteraciones:</strong> 1,200
+                    </div>
+                </div>
+            </div>
+
+            <table class="tabla-estandar tabla-ranking">
+                <thead>
+                    <tr>
+                        <th>Puesto</th>
+                        <th>Algoritmo</th>
+                        <th>Tiempo de Ejecución</th>
+                        <th>Iteraciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="puesto-oro">
+                        <td>🥇 1</td>
+                        <td>QuickSort</td>
+                        <td>12 ms</td>
+                        <td>340</td>
+                    </tr>
+                    <tr class="puesto-plata">
+                        <td>🥈 2</td>
+                        <td>MergeSort</td>
+                        <td>18 ms</td>
+                        <td>412</td>
+                    </tr>
+                    <tr class="puesto-bronce">
+                        <td>🥉 3</td>
+                        <td>Inserción</td>
+                        <td>45 ms</td>
+                        <td>1,200</td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>Burbuja</td>
+                        <td>145 ms</td>
+                        <td>2,450</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <a href="index.html" class="back-link">← Volver al inicio</a>
+    </div>
+</body>
+</html>

@@ -1,3 +1,140 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+
+/* Reseteo general para quitar márgenes que traen los navegadores por defecto */
 * {
-    background-color: aqua;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #0a0a0a;
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    color: #f8fafc;
+}
+
+/* Contenedor que agrupa las dos tarjetas */
+.contenedor-tarjetas {
+    display: flex;
+    gap: 50px;
+    /* Animación para que aparezcan de abajo hacia arriba */
+    animation: fadeIn 0.8s ease-out;
+}
+
+/* Definición de la animación de entrada */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Estilo base de cada tarjeta */
+article {
+    /* Fondo con degradado grafito */
+    background: linear-gradient(145deg, #222222, #121212);
+    width: 300px;
+    border-radius: 20px;
+    text-align: center;
+    padding: 50px 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    /* Animación de movimiento suave */
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    /* Sombra negra y pequeño brillo interno */
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.8), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Efecto de salto cuando se pasa el mouse sobre la tarjeta */
+article:hover {
+    transform: translateY(-12px);
+    border-color: rgba(255, 255, 255, 0.15);
+}
+
+/* La barrita de brillo en la parte superior de cada tarjeta */
+article::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: rgba(255, 255, 255, 0.1);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* Barrita superior azul al pasar el mouse por Políticos */
+.card-polite:hover::before {
+    background: #3b82f6;
+    box-shadow: 0 0 20px #3b82f6;
+}
+
+/* Barrita superior roja al pasar el mouse por Ampones */
+.card-hampon:hover::before {
+    background: #ef4444;
+    box-shadow: 0 0 20px #ef4444;
+}
+
+.card-title h2 {
+    color: #f8fafc;
+    font-size: 26px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+/* Tamaño y sombra de los emojis */
+.card-icon p {
+    font-size: 85px;
+    transition: transform 0.4s ease;
+    filter: drop-shadow(0 10px 15px rgba(0, 0, 0, 0.5));
+}
+
+/* Efecto para que el emoji crezca cuando pasas el mouse por la tarjeta */
+article:hover .card-icon p {
+    transform: scale(1.15) translateY(-5px);
+}
+
+/* Estilo general de los botones de ambas tarjetas */
+.button a {
+    display: block;
+    padding: 16px;
+    text-decoration: none;
+    color: white;
+    border-radius: 12px;
+    font-weight: 600;
+    font-size: 15px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    background: #1a1a1a;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    transition: all 0.3s ease;
+}
+
+/* Botón de Políticos */
+.card-polite .button a:hover {
+    background: #3b82f6;
+    border-color: #3b82f6;
+    box-shadow: 0 0 20px rgba(59, 130, 246, 0.4);
+    transform: scale(1.05);
+}
+
+/* Botón de Ampones */
+.card-hampon .button a:hover {
+    background: #ef4444;
+    border-color: #ef4444;
+    box-shadow: 0 0 20px rgba(239, 68, 68, 0.4);
+    transform: scale(1.05);
 }
