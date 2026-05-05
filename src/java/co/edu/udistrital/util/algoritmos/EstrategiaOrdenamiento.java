@@ -1,0 +1,35 @@
+package co.edu.udistrital.util.algoritmos;
+
+import co.edu.udistrital.util.listas.ListaEnlazadaDoble;
+
+/**
+ * Interfaz funcional que define el contrato para las estrategias de ordenación
+ * aplicables a una {@link ListaEnlazadaDoble}.
+ * Utiliza el patrón Strategy para permitir intercambiar algoritmos de
+ * ordenación.
+ *
+ * @param <T> El tipo de elementos en la lista, se espera que implemente
+ *            {@link Comparable}.
+ * @author devapps
+ * @version 1.1
+ */
+@FunctionalInterface // Indica que es una interfaz con un solo método abstracto
+public interface EstrategiaOrdenamiento<T> {
+
+    /**
+     * Ordena la lista enlazada simple proporcionada "in situ" (modificando la
+     * estructura original).
+     * Se asume que los elementos de tipo {@code T} son comparables entre sí.
+     * La implementación específica del algoritmo puede modificar la referencia a la
+     * cabeza de la lista.
+     *
+     * @param lista La {@link ListaEnlazadaDoble} que será ordenada. No debe ser
+     *              null.
+     * @throws ClassCastException   si los elementos de la lista no implementan
+     *                              {@link Comparable}
+     *                              (aunque la verificación principal se hace antes
+     *                              de llamar a este método).
+     * @throws NullPointerException si {@code lista} es null.
+     */
+    void ordenar(ListaEnlazadaDoble<T> lista);
+}
