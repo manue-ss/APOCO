@@ -21,25 +21,22 @@ public class Persona { // Removido: implements Comparable<Persona>
     /** La edad de la persona en años. */
     private int edad;
     /** El peso de la persona en kilogramos. */
-    private double peso;
 
     /**
      * Construye una nueva instancia de Persona.
      *
      * @param nombre El nombre de la persona (no debe ser null).
      * @param edad   La edad de la persona (debe ser no negativa).
-     * @param peso   El peso de la persona en kg (positivo o cero).
      * @throws NullPointerException si el nombre es null.
      * @throws IllegalArgumentException si la edad es negativa.
      */
-    public Persona(String nombre, int edad, double peso) {
+    public Persona(String nombre, int edad) {
         Objects.requireNonNull(nombre, "El nombre no puede ser null.");
         if (edad < 0) {
             throw new IllegalArgumentException("La edad no puede ser negativa.");
         }
         this.nombre = nombre;
         this.edad = edad;
-        this.peso = peso;
     }
 
     // --- Getters ---
@@ -60,13 +57,7 @@ public class Persona { // Removido: implements Comparable<Persona>
         return edad;
     }
 
-    /**
-     * Obtiene el peso de la persona.
-     * @return El peso en kg.
-     */
-    public double getPeso() {
-        return peso;
-    }
+
 
     // --- Setters ---
 
@@ -92,13 +83,6 @@ public class Persona { // Removido: implements Comparable<Persona>
         this.edad = edad;
     }
 
-    /**
-     * Establece el peso de la persona.
-     * @param peso El nuevo peso en kg.
-     */
-    public void setPeso(double peso) {
-        this.peso = peso;
-    }
 
     // --- Overrides ---
 
@@ -110,7 +94,7 @@ public class Persona { // Removido: implements Comparable<Persona>
      */
     @Override
     public String toString() {
-        return String.format("%s (Edad: %d, Peso: %.1f kg)", nombre, edad, peso);
+        return String.format("%s (Edad: %d)", nombre, edad);
     }
 
     /**
