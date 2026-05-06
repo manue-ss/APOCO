@@ -8,8 +8,9 @@ import java.util.Objects;
 
 /**
  * Representa a un Corrupto de APOCO, extendiendo la clase {@link Persona}.
- * Incluye información específica del individuo como la cantidad de dinero robado.
- * Implementa {@link Comparable}<{@link Corrupto}> para definir la ordenación .
+ * Incluye información específica del individuo como la cantidad de dinero
+ * robado. Implementa {@link Comparable}<{@link Corrupto}> para definir la
+ * ordenación .
  *
  * @see Persona
  * @author devapps (modificado)
@@ -17,37 +18,46 @@ import java.util.Objects;
  */
 // La declaración ahora es correcta y no entra en conflicto con la superclase
 public class Corrupto extends Persona implements Comparable<Corrupto> {
-    /** Formateador estándar para mostrar fechas de forma localizada y legible. */
 
-    private int  dineroRobado;
-
+    /**
+     * Formateador estándar para mostrar fechas de forma localizada y legible.
+     */
+    private double dineroRobado;
 
     /**
      * Construye una nueva instancia de Corrupto.
      *
-     * @param nombre Nombre papal. No debe ser null.
-     * @param edad Edad estimada (no negativa).
+     * @param nombre       Nombre papal. No debe ser null.
+     * @param edad         Edad estimada (no negativa).
      * @param dineroRobado EL dinero que ha robado
+     *
      * @throws IllegalArgumentException si {@code edad} es negativa.
      */
-    public Corrupto (String nombre, int edad, int dineroRobado) {
+    public Corrupto(String nombre, int edad, double dineroRobado) {
         super(nombre, edad);
         this.dineroRobado = dineroRobado;
     }
 
     // --- Getters ---
-    /** @return La canditad {@link dineroRobado} de dinero robado. */
-    public int getDineroRobado() { return dineroRobado; }
+    /**
+     * @return La canditad {@link dineroRobado} de dinero robado.
+     */
+    public double getDineroRobado() {
+        return dineroRobado;
+    }
 
     // --- Setters ---
-    /** @param dineroRobado La nueva cantidad. */
-    public void setDineroRobado(int dineroRobado) {
-        this.dineroRobado = dineroRobado; }
+    /**
+     * @param dineroRobado La nueva cantidad.
+     */
+    public void setDineroRobado(double dineroRobado) {
+        this.dineroRobado = dineroRobado;
+    }
 
     // --- Overrides ---
-
     /**
      * Devuelve una representación textual formateada del Corrupto.
+     *
      * @return Una cadena descriptiva del Corrupto.
      */
     @Override
@@ -57,32 +67,36 @@ public class Corrupto extends Persona implements Comparable<Corrupto> {
 
     /**
      * Compara este Corrupto con otro objeto para determinar igualdad.
+     *
      * @param o El objeto a comparar.
-     * @return {@code true} si son el mismo Corrupto (nombre, edad y dinero robado), {@code false} en caso contrario.
+     *
+     * @return {@code true} si son el mismo Corrupto (nombre, edad y dinero
+     *         robado), {@code false} en caso contrario.
      */
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
         Corrupto corrupto = (Corrupto) o;
-        return this.getNombre().equalsIgnoreCase(corrupto.getNombre()) && this.getEdad()==corrupto.getEdad() &&
-               this.dineroRobado==corrupto.dineroRobado;
+        return this.getNombre().equalsIgnoreCase(corrupto.getNombre()) && this.getEdad() == corrupto.getEdad()
+                && this.dineroRobado == corrupto.dineroRobado;
     }
-        @Override
+
+    @Override
     public int hashCode() {
-        
+
         return Objects.hash(getNombre().toLowerCase(), getEdad(), dineroRobado);
     }
+
     @Override
     public int compareTo(Corrupto otroCorrupto) {
         // Ejemplo: Ordenar de menor a mayor cantidad de dinero robado
-        return Integer.compare(this.dineroRobado, otroCorrupto.dineroRobado);
-        
-        
+        return Double.compare(this.dineroRobado, otroCorrupto.dineroRobado);
+
     }
 
 }
-
-
-
-
