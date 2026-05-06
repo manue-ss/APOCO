@@ -1,0 +1,161 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+
+/* Reseteo general */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Estilos de la página principal */
+body {
+    background-color: #0a0a0a;
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    color: #f8fafc;
+}
+
+/* Contenedor del encabezado */
+.header-principal {
+    text-align: center;
+    animation: fadeIn 0.8s ease-out;
+}
+
+/* Título principal (APOCO) con degradado */
+.header-principal h1 {
+    font-size: 75px;
+    font-weight: 700;
+    letter-spacing: 8px;
+    margin-bottom: 5px;
+    background: linear-gradient(to bottom, #ffffff, #9ca3af);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    filter: drop-shadow(0 10px 15px rgba(0, 0, 0, 0.8));
+}
+
+/* Subtítulo */
+.header-principal p {
+    font-size: 16px;
+    color: #9ca3af;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    font-weight: 500;
+}
+
+/* Caja que agrupa las tarjetas */
+.contenedor-cards {
+    display: flex;
+    gap: 50px;
+    animation: fadeIn 0.8s ease-out;
+}
+
+/* Animación de aparición */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Diseño base de las tarjetas de selección */
+article {
+    background: linear-gradient(145deg, #222222, #121212);
+    width: 300px;
+    border-radius: 20px;
+    text-align: center;
+    padding: 50px 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.8), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Efecto de salto al pasar el mouse por la tarjeta */
+article:hover {
+    transform: translateY(-12px);
+    border-color: rgba(255, 255, 255, 0.15);
+}
+
+/* Línea de color superior inactiva */
+article::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: rgba(255, 255, 255, 0.1);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* Línea azul encendida (Políticos) */
+.card-polite:hover::before {
+    background: #3b82f6;
+    box-shadow: 0 0 20px #3b82f6;
+}
+
+/* Línea roja encendida (Hampones) */
+.card-hampon:hover::before {
+    background: #ef4444;
+    box-shadow: 0 0 20px #ef4444;
+}
+
+/* Texto del título en las tarjetas */
+.card-title h2 {
+    color: #f8fafc;
+    font-size: 26px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+/* Estilos de los emojis */
+.card-icon p {
+    font-size: 85px;
+    transition: transform 0.4s ease;
+    filter: drop-shadow(0 10px 15px rgba(0, 0, 0, 0.5));
+}
+
+/* Efecto de zoom en el emoji */
+article:hover .card-icon p {
+    transform: scale(1.15) translateY(-5px);
+}
+
+/* Estilos de los botones "Gestionar" */
+.button a {
+    display: block;
+    padding: 16px;
+    text-decoration: none;
+    color: white;
+    border-radius: 12px;
+    font-weight: 600;
+    font-size: 15px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    background: #1a1a1a;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    transition: all 0.3s ease;
+}
+
+/* Botón azul al hacer hover (Políticos) */
+.card-polite .button a:hover {
+    background: #3b82f6;
+    border-color: #3b82f6;
+    box-shadow: 0 0 20px rgba(59, 130, 246, 0.4);
+    transform: scale(1.05);
+}
+
+/* Botón rojo al hacer hover (Hampones) */
+.card-hampon .button a:hover {
+    background: #ef4444;
+    border-color: #ef4444;
+    box-shadow: 0 0 20px rgba(239, 68, 68, 0.4);
+    transform: scale(1.05);
+}

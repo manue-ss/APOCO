@@ -1,0 +1,134 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+/* Reseteo básico para quitar márgenes por defecto */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Estilos generales de la página (Centrado absoluto) */
+body {
+    background-color: #0a0a0a;
+    font-family: 'Poppins', sans-serif;
+    color: #f8fafc;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Contenedor principal del formulario de configuración */
+.config-box {
+    background: linear-gradient(145deg, #1e1e1e, #121212);
+    padding: 50px 40px;
+    border-radius: 20px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.7), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    text-align: center;
+    width: 100%;
+    max-width: 450px;
+    animation: fadeUp 0.6s ease-out;
+}
+
+/* Animación de entrada de la caja */
+@keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Título de la caja */
+.config-box h1 {
+    font-size: 26px;
+    margin-bottom: 35px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #f8fafc;
+}
+
+/* Contenedor de cada campo (Etiqueta + Input) */
+.input-group {
+    text-align: left;
+    margin-bottom: 30px;
+}
+
+/* Etiqueta descriptiva del campo */
+.input-group label {
+    font-size: 13px;
+    font-weight: 600;
+    color: #9ca3af;
+    margin-bottom: 8px;
+    display: block;
+    text-transform: uppercase;
+}
+
+/* Caja de texto donde se escriben los números */
+.input-group input {
+    width: 100%;
+    padding: 15px;
+    font-size: 16px;
+    background: #0a0a0a;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 8px;
+    color: #f8fafc;
+    text-align: center;
+    transition: border 0.3s;
+}
+
+/* Borde azul al enfocar (Políticos) */
+.input-group input:focus {
+    outline: none;
+    border-color: #3b82f6;
+}
+
+/* Borde rojo al enfocar (Hampones) */
+.input-group.hampones input:focus {
+    border-color: #ef4444;
+}
+
+/* Estilo general del botón de acción */
+.btn-action {
+    width: 100%;
+    padding: 16px;
+    font-size: 16px;
+    margin-bottom: 20px;
+    background: #3b82f6;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+}
+
+/* Efecto hover del botón (Políticos) */
+.btn-action:hover {
+    box-shadow: 0 0 20px rgba(59, 130, 246, 0.4);
+    transform: translateY(-2px);
+}
+
+/* Variante roja del botón (Hampones) */
+.btn-action.red {
+    background: #ef4444;
+}
+
+/* Efecto hover rojo (Hampones) */
+.btn-action.red:hover {
+    box-shadow: 0 0 20px rgba(239, 68, 68, 0.4);
+}
+
+/* Enlace para volver al inicio */
+.back-link {
+    display: inline-block;
+    margin-top: 20px;
+    color: #9ca3af;
+    font-weight: 600;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.back-link:hover {
+    color: white;
+}

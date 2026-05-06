@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <title>Configurar Hampones - APOCO</title>
+    <meta charset="UTF-8">
+
+    <link rel="stylesheet" href="css/config-style.css">
+</head>
+
+<body>
+
+    <!-- Contenedor principal del formulario -->
+    <div class="config-box">
+        <h1>Auditorio de Hampones</h1>
+
+        <!-- Formulario -->
+        <form action="hampones.html" method="GET">
+
+            <!-- Grupo de entrada para las filas -->
+            <div class="input-group hampones">
+                <label>Número de Filas:</label>
+                <input type="number" name="filas" min="1" required placeholder="Ej: 5">
+            </div>
+
+            <!-- Grupo de entrada para las columnas -->
+            <div class="input-group hampones">
+                <label>Número de Columnas:</label>
+                <input type="number" name="columnas" min="1" required placeholder="Ej: 8">
+            </div>
+
+            <!-- Botón para generar el auditorio -->
+            <button type="submit" class="btn-action red">Generar Auditorio</button>
+        </form>
+
+        <!-- Enlace para regresar a la página principal -->
+        <a href="index.html" class="back-link">← Volver al inicio</a>
+    </div>
+
+</body>
+
+</html>
