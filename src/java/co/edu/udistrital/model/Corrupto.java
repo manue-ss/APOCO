@@ -19,17 +19,15 @@ import java.util.Objects;
 public class Corrupto extends Persona implements Comparable<Corrupto> {
     /** Formateador estándar para mostrar fechas de forma localizada y legible. */
 
-    /** Fecha de inicio del pontificado (obligatoria). */
     private int  dineroRobado;
 
 
     /**
-     * Construye una nueva instancia de Papa.
+     * Construye una nueva instancia de Corrupto.
      *
      * @param nombre Nombre papal. No debe ser null.
      * @param edad Edad estimada (no negativa).
      * @param dineroRobado EL dinero que ha robado
-     * @throws NullPointerException si {@code nombre} o {@code fechaInicioPapado} son null.
      * @throws IllegalArgumentException si {@code edad} es negativa.
      */
     public Corrupto (String nombre, int edad, int dineroRobado) {
@@ -42,15 +40,15 @@ public class Corrupto extends Persona implements Comparable<Corrupto> {
     public int getDineroRobado() { return dineroRobado; }
 
     // --- Setters ---
-    /** @param dineroRobado La nueva fecha (no debe ser null). */
+    /** @param dineroRobado La nueva cantidad. */
     public void setDineroRobado(int dineroRobado) {
         this.dineroRobado = dineroRobado; }
 
     // --- Overrides ---
 
     /**
-     * Devuelve una representación textual formateada del Papa.
-     * @return Una cadena descriptiva del Papa.
+     * Devuelve una representación textual formateada del Corrupto.
+     * @return Una cadena descriptiva del Corrupto.
      */
     @Override
     public String toString() {

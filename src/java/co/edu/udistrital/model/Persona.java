@@ -4,8 +4,8 @@ package co.edu.udistrital.model;
 import java.util.Objects;
 
 /**
- * Representa a una persona con atributos básicos como nombre, edad y peso.
- * Esta clase sirve como base para otras clases más específicas (ej. {@link Papa}).
+ * Representa a una persona con atributos básicos como nombre y edad.
+ * Esta clase sirve como base para otras clases más específicas (ej. {@link Corrupto} y {@link Hampon}).
  * <p>
  * Nota: Esta versión NO implementa Comparable directamente. Si se necesita ordenar
  * Personas, se debe usar un {@link java.util.Comparator}.
@@ -88,7 +88,7 @@ public class Persona { // Removido: implements Comparable<Persona>
 
     /**
      * Devuelve una representación textual de la persona.
-     * Incluye nombre, edad y peso formateado.
+     * Incluye nombre y edad formateado.
      *
      * @return Una cadena que representa a la persona.
      */

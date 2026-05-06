@@ -13,16 +13,15 @@ import java.util.Objects;
 public class Hampon extends Persona implements Comparable<Hampon> {
     /** Formateador estándar para mostrar fechas de forma localizada y legible. */
 
-    /** Fecha de inicio del pontificado (obligatoria). */
     private int  dineroARobar;
 
 
     /**
-     * Construye una nueva instancia de Papa.
+     * Construye una nueva instancia de Hampon.
      *
-     * @param nombre Nombre papal. No debe ser null.
+     * @param nombre Nombre del Hampon. No debe ser null.
      * @param edad Edad estimada (no negativa).
-     * @param dineroRobado EL dinero que ha robado
+     * @param dineroARobado EL dinero que ha robado
      * @throws NullPointerException si {@code nombre} o {@code fechaInicioPapado} son null.
      * @throws IllegalArgumentException si {@code edad} es negativa.
      */
@@ -45,7 +44,7 @@ public class Hampon extends Persona implements Comparable<Hampon> {
 
     /**
      * Devuelve una representación textual formateada del Hampon.
-     * @return Una cadena descriptiva del Papa.
+     * @return Una cadena descriptiva del Hampon.
      */
     @Override
     public String toString() {
@@ -53,9 +52,9 @@ public class Hampon extends Persona implements Comparable<Hampon> {
     }
 
     /**
-     * Compara este Corrupto con otro objeto para determinar igualdad.
+     * Compara este Hampon con otro objeto para determinar igualdad.
      * @param o El objeto a comparar.
-     * @return {@code true} si son el mismo Corrupto (nombre, edad y dinero robado), {@code false} en caso contrario.
+     * @return {@code true} si son el mismo Hampon (nombre, edad y dinero robado), {@code false} en caso contrario.
      */
     @Override
     public boolean equals(Object o) {
