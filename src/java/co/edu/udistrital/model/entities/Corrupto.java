@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package co.edu.udistrital.model;
+package co.edu.udistrital.model.entities;
 
 import java.util.Objects;
 
@@ -19,9 +19,6 @@ import java.util.Objects;
 // La declaración ahora es correcta y no entra en conflicto con la superclase
 public class Corrupto extends Persona implements Comparable<Corrupto> {
 
-    /**
-     * Formateador estándar para mostrar fechas de forma localizada y legible.
-     */
     private double dineroRobado;
 
     /**

@@ -1,9 +1,10 @@
 package co.edu.udistrital.util.generador;
 
-import co.edu.udistrital.model.Corrupto;
+import co.edu.udistrital.model.entities.Corrupto;
 import java.util.Random;
 
 /**
+ * Generador específico para instanciar objetos de tipo {@link Corrupto} con datos aleatorios.
  *
  * @author Manuel Salazar
  * @since 0.1

@@ -2,19 +2,18 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package co.edu.udistrital.model;
+package co.edu.udistrital.model.entities;
 
 import java.util.Objects;
 
 /**
+ * Representa a un Hampón en el sistema, extendiendo la clase {@link Persona}.
+ * Incluye información específica del individuo como la cantidad de dinero que está dispuesto a robar.
+ * Implementa {@link Comparable} para definir la ordenación por cantidad de dinero a robar.
  *
  * @author acurr
  */
 public class Hampon extends Persona implements Comparable<Hampon> {
-
-    /**
-     * Formateador estándar para mostrar fechas de forma localizada y legible.
-     */
 
     private double dineroARobar;
 
@@ -23,10 +22,9 @@ public class Hampon extends Persona implements Comparable<Hampon> {
      *
      * @param nombre        Nombre del Hampon. No debe ser null.
      * @param edad          Edad estimada (no negativa).
-     * @param dineroARobado EL dinero que ha robado
+     * @param dineroARobar  El dinero que está dispuesto a robar.
      *
-     * @throws NullPointerException     si {@code nombre} o
-     *                                  {@code fechaInicioPapado} son null.
+     * @throws NullPointerException     si {@code nombre} es null.
      * @throws IllegalArgumentException si {@code edad} es negativa.
      */
     public Hampon(String nombre, int edad, double dineroARobar) {

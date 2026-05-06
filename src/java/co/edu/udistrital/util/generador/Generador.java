@@ -6,6 +6,10 @@ import java.util.Random;
 import java.util.Set;
 
 /**
+ * Clase abstracta base para la generación automatizada de entidades.
+ * Proporciona métodos para generar listas de entidades con datos aleatorios.
+ *
+ * @param <T> El tipo de entidad a generar.
  *
  * @author Manuel Salazar
  * @since 0.1

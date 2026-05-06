@@ -7,7 +7,6 @@ package co.edu.udistrital.util.algoritmos;
 import co.edu.udistrital.util.listas.ListaEnlazadaSimple;
 
 /**
- * /**
  * Interfaz funcional que define el contrato para las estrategias de ordenación
  * aplicables a una {@link ListaEnlazadaSimple}. Utiliza el patrón Strategy para
  * permitir intercambiar algoritmos de ordenación.

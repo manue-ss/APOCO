@@ -1,4 +1,4 @@
-package co.edu.udistrital.model;
+package co.edu.udistrital.model.entities;
 
 import java.util.Objects;
 
@@ -24,10 +24,6 @@ public class Persona { // Removido: implements Comparable<Persona>
      * La edad de la persona en años.
      */
     private int edad;
-
-    /**
-     * El peso de la persona en kilogramos.
-     */
 
     /**
      * Construye una nueva instancia de Persona.

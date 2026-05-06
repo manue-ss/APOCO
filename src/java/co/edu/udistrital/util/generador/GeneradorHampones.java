@@ -1,9 +1,10 @@
 package co.edu.udistrital.util.generador;
 
-import co.edu.udistrital.model.Hampon;
+import co.edu.udistrital.model.entities.Hampon;
 import java.util.Random;
 
 /**
+ * Generador específico para instanciar objetos de tipo {@link Hampon} con datos aleatorios.
  *
  * @author Manuel Salazar
  * @since 0.1
