@@ -467,7 +467,7 @@ public class ListaEnlazadaSimple<T> {
         return buscarNodo(dato) != null;
     }
 
-    public List<T> toStandarList() {
+    public List<T> toStandardList() {
         List<T> listaEstandar = new ArrayList<>(this.tamanno);
         Nodo<T> actual = cabeza;
 
