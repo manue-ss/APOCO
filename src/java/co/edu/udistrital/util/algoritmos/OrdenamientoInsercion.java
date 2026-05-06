@@ -33,6 +33,8 @@ public class OrdenamientoInsercion<T extends Comparable<T>> implements Estrategi
      */
     private Nodo<T> cabezaOrdenada;
 
+    private long iteraciones;
+
     /**
      * Ordena la lista dada usando el algoritmo de Inserción, re-enlazando
      * nodos.
@@ -44,11 +46,12 @@ public class OrdenamientoInsercion<T extends Comparable<T>> implements Estrategi
      * @throws ClassCastException   si los elementos no son {@code Comparable}.
      */
     @Override
-    public void ordenar(ListaEnlazadaSimple<T> lista) {
+    public long ordenar(ListaEnlazadaSimple<T> lista) {
         Objects.requireNonNull(lista, "La lista a ordenar no puede ser null.");
+        this.iteraciones = 0;
 
         if (lista.getTamanno() <= 1) {
-            return; // Nada que ordenar
+            return 0; // Nada que ordenar
         }
 
         Nodo<T> actualOriginal = lista.getCabeza(); // Iterador sobre la lista original
@@ -72,6 +75,8 @@ public class OrdenamientoInsercion<T extends Comparable<T>> implements Estrategi
         // Al finalizar, la lista 'cabezaOrdenada' contiene todos los nodos ordenados.
         // Actualiza la cabeza de la lista original.
         lista.setCabeza(this.cabezaOrdenada); // setCabeza actualiza también la cola
+
+        return this.iteraciones;
     }
 
     /**
@@ -82,6 +87,8 @@ public class OrdenamientoInsercion<T extends Comparable<T>> implements Estrategi
      * @param nodoAInsertar El {@link Nodo} que se va a insertar.
      */
     private void insertarEnOrden(Nodo<T> nodoAInsertar) {
+        this.iteraciones++;
+
         // Caso 1: La lista ordenada está vacía o el nuevo nodo es menor o igual que la cabeza actual.
         if (this.cabezaOrdenada == null
                 || this.cabezaOrdenada.getDato().compareTo(nodoAInsertar.getDato()) >= 0) {
@@ -89,11 +96,14 @@ public class OrdenamientoInsercion<T extends Comparable<T>> implements Estrategi
             nodoAInsertar.setSiguiente(this.cabezaOrdenada);
             this.cabezaOrdenada = nodoAInsertar;
         } else {
+
             // Caso 2: Buscar la posición correcta dentro de la lista ordenada.
             Nodo<T> actualOrdenado = this.cabezaOrdenada;
             // Avanzar mientras no lleguemos al final Y el siguiente sea menor que el nodo a insertar
             while (actualOrdenado.getSiguiente() != null
                     && actualOrdenado.getSiguiente().getDato().compareTo(nodoAInsertar.getDato()) < 0) {
+
+                this.iteraciones++;
                 actualOrdenado = actualOrdenado.getSiguiente();
             }
             // Insertar 'nodoAInsertar' después de 'actualOrdenado'

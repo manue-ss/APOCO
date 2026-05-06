@@ -34,6 +34,8 @@ import java.util.Objects;
  * @version 1.1
  */
 public class OrdenamientoQuickSort<T extends Comparable<T>> implements EstrategiaOrdenamiento<T> {
+    
+    private long iteraciones;
 
     /**
      * Ordena la lista dada usando el algoritmo Quick Sort, usando el último
@@ -49,15 +51,17 @@ public class OrdenamientoQuickSort<T extends Comparable<T>> implements Estrategi
      *                                       está disponible (implícito).
      */
     @Override
-    public void ordenar(ListaEnlazadaSimple<T> lista) {
+    public long ordenar(ListaEnlazadaSimple<T> lista) {
         Objects.requireNonNull(lista, "La lista a ordenar no puede ser null.");
+        
+        this.iteraciones = 0;
 
         if (lista.getTamanno() <= 1) {
-            return; // Nada que ordenar
+            return 0; // Nada que ordenar
         }
 
         Nodo<T> cabeza = lista.getCabeza();
-        Nodo<T> cola = encontrarCola(cabeza); // Necesitamos la cola para el pivote inicial
+        Nodo<T> cola = lista.getCola();// Necesitamos la cola para el pivote inicial
 
         quickSortRecursivo(cabeza, cola);
 
@@ -66,25 +70,8 @@ public class OrdenamientoQuickSort<T extends Comparable<T>> implements Estrategi
         // Llamar a setCabeza asegura que la cola se recalcule correctamente si fuera necesario
         // (aunque en este caso de intercambio de datos, no debería cambiar estructuralmente).
         lista.setCabeza(cabeza);
-    }
-
-    /**
-     * Encuentra el último nodo (cola) de una lista enlazada simple.
-     *
-     * @param nodo El nodo desde el cual empezar a buscar (normalmente la
-     *             cabeza).
-     *
-     * @return El último {@link Nodo} de la lista, o {@code null} si el nodo
-     *         inicial es {@code null}.
-     */
-    private Nodo<T> encontrarCola(Nodo<T> nodo) {
-        if (nodo == null) {
-            return null;
-        }
-        while (nodo.getSiguiente() != null) {
-            nodo = nodo.getSiguiente();
-        }
-        return nodo;
+        
+        return this.iteraciones;
     }
 
     /**
@@ -155,6 +142,8 @@ public class OrdenamientoQuickSort<T extends Comparable<T>> implements Estrategi
 
         // Recorrer hasta el nodo ANTES de la cola (pivote)
         while (actual != cola) {
+            this.iteraciones++;
+            
             if (actual.getDato().compareTo(valorPivote) < 0) {
                 // Elemento menor encontrado. Mover 'i' a la posición correcta e intercambiar datos.
                 i = (i == null) ? cabeza : i.getSiguiente(); // Avanzar 'i'

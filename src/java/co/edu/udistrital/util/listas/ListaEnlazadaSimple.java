@@ -76,6 +76,17 @@ public class ListaEnlazadaSimple<T> {
     public Nodo<T> getCabeza() {
         return this.cabeza;
     }
+    
+    /**
+     * Obtiene el nodo cola de la lista. Utilizado internamente por algunas
+     * estrategias de ordenación. ¡Precaución! Modificar el nodo devuelto
+     * externamente puede romper la lista.
+     *
+     * @return El primer {@link Nodo}.
+     */
+    public Nodo<T> getCola() {
+        return this.cola;
+    }
 
     /**
      * Establece el nodo cabeza de la lista. Utilizado internamente por

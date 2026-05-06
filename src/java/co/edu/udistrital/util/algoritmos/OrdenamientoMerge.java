@@ -28,6 +28,8 @@ import java.util.Objects;
  * @version 1.1
  */
 public class OrdenamientoMerge<T extends Comparable<T>> implements EstrategiaOrdenamiento<T> {
+    
+    private long iteraciones;
 
     /**
      * Ordena la lista dada usando el algoritmo Merge Sort, re-enlazando nodos.
@@ -39,11 +41,13 @@ public class OrdenamientoMerge<T extends Comparable<T>> implements EstrategiaOrd
      * @throws ClassCastException   si los elementos no son {@code Comparable}.
      */
     @Override
-    public void ordenar(ListaEnlazadaSimple<T> lista) {
+    public long ordenar(ListaEnlazadaSimple<T> lista) {
         Objects.requireNonNull(lista, "La lista a ordenar no puede ser null.");
+        
+        this.iteraciones = 0;
 
         if (lista.getTamanno() <= 1) {
-            return; // Nada que ordenar
+            return 0; // Nada que ordenar
         }
 
         // Inicia el proceso recursivo desde la cabeza original
@@ -51,6 +55,8 @@ public class OrdenamientoMerge<T extends Comparable<T>> implements EstrategiaOrd
 
         // Actualiza la cabeza de la lista original con el resultado ordenado
         lista.setCabeza(nuevaCabeza); // setCabeza también actualiza la cola
+        
+        return this.iteraciones;
     }
 
     /**
@@ -125,6 +131,8 @@ public class OrdenamientoMerge<T extends Comparable<T>> implements EstrategiaOrd
 
         // Nodo cabeza de la lista fusionada resultante
         Nodo<T> cabezaResultado;
+        
+        this.iteraciones++;
 
         // Comparar los primeros nodos de cada lista para decidir la cabeza del resultado
         if (izquierda.getDato().compareTo(derecha.getDato()) <= 0) {

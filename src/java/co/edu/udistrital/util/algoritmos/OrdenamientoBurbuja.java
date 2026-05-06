@@ -43,12 +43,13 @@ public class OrdenamientoBurbuja<T extends Comparable<T>> implements EstrategiaO
      *                                       está disponible (implícito).
      */
     @Override
-    public void ordenar(ListaEnlazadaSimple<T> lista) {
+    public long ordenar(ListaEnlazadaSimple<T> lista) {
         Objects.requireNonNull(lista, "La lista a ordenar no puede ser null.");
+        long iteraciones = 0;
 
         int n = lista.getTamanno();
         if (n <= 1) {
-            return; // Nada que ordenar
+            return 0; // Nada que ordenar
         }
 
         boolean intercambiado;
@@ -63,6 +64,8 @@ public class OrdenamientoBurbuja<T extends Comparable<T>> implements EstrategiaO
             // Bucle interno: comparaciones e intercambios en cada pasada
             // En cada pasada, el elemento más grande "flota" hacia el final
             for (int j = 0; j < n - i - 1; j++) {
+                iteraciones++; //aumenta el numero de iteraciones que realiza el algorimo
+                
                 // Asegurar que no intentamos comparar o acceder a nodos nulos
                 if (actual == null || siguiente == null) {
                     break; // No debería ocurrir en una lista bien formada, pero es una salvaguarda
@@ -100,5 +103,6 @@ public class OrdenamientoBurbuja<T extends Comparable<T>> implements EstrategiaO
         // No es estrictamente necesario llamar a lista.setCabeza() aquí,
         // pero hacerlo asegura la correcta actualización de la cola.
         lista.setCabeza(cabezaActual);
+        return iteraciones;
     }
 }

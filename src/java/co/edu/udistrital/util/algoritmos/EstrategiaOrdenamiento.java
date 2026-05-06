@@ -35,5 +35,5 @@ public interface EstrategiaOrdenamiento<T> {
      *                              método).
      * @throws NullPointerException si {@code lista} es null.
      */
-    void ordenar(ListaEnlazadaSimple<T> lista);
+    long ordenar(ListaEnlazadaSimple<T> lista);
 }
