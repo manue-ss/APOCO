@@ -1,16 +1,20 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <title>Políticos - APOCO</title>
     <meta charset="UTF-8">
+
     <link rel="stylesheet" href="css/manage-style.css">
 </head>
+
 <body>
     <div class="main-container">
         <h1>Gestión de Políticos</h1>
-        
-        <section class="section-box">
-            <h2>Registro Actual</h2>
+
+        <!-- Datos originales (Sin ordenar) -->
+        <section class="module">
+            <h2>Registro Actual (Sin Ordenar)</h2>
             <table class="tabla-estandar">
                 <thead>
                     <tr>
@@ -20,17 +24,28 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr><td>Armando</td><td>Paredes</td><td>$500,000,000</td></tr>
-                    <tr><td>Elba</td><td>Lazo</td><td>$1,200,000,000</td></tr>
+                    <!-- Estos datos los llenará el backend -->
+                    <tr>
+                        <td>Elba</td>
+                        <td>Lazo</td>
+                        <td>$1,200,000,000</td>
+                    </tr>
+                    <tr>
+                        <td>Armando</td>
+                        <td>Paredes</td>
+                        <td>$500,000,000</td>
+                    </tr>
+                    <tr>
+                        <td>Zoila</td>
+                        <td>Vaca</td>
+                        <td>$2,500,000,000</td>
+                    </tr>
                 </tbody>
             </table>
-            
-            <div class="actions">
-                <button class="btn-action">Ejecutar Ordenamiento</button>
-            </div>
         </section>
 
-        <section class="section-box results">
+        <!-- Datos procesados (Ordenados) -->
+        <section class="module">
             <h2>Tabla Ordenada</h2>
             <table class="tabla-estandar">
                 <thead>
@@ -41,45 +56,55 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr><td>Armando</td><td>Paredes</td><td>$500,000,000</td></tr>
-                    <tr><td>Elba</td><td>Lazo</td><td>$1,200,000,000</td></tr>
+                    <tr>
+                        <td>Armando</td>
+                        <td>Paredes</td>
+                        <td>$500,000,000</td>
+                    </tr>
+                    <tr>
+                        <td>Elba</td>
+                        <td>Lazo</td>
+                        <td>$1,200,000,000</td>
+                    </tr>
+                    <tr>
+                        <td>Zoila</td>
+                        <td>Vaca</td>
+                        <td>$2,500,000,000</td>
+                    </tr>
                 </tbody>
             </table>
         </section>
 
-        <section class="section-box comparativa-resultados">
+        <!-- Ranking y rendimiento de algoritmos -->
+        <section class="module comparativa-resultados">
             <h2>🏆 Rendimiento de Algoritmos</h2>
             <p class="descripcion-ranking">Podio de los 3 mejores tiempos y registro completo de ejecución.</p>
-            
+
+            <!-- Contenedor visual del Top 3 (Podio) -->
             <div class="podio-contenedor">
                 <div class="podio-nivel plata" style="height: 150px;">
                     <div class="podio-puesto">🥈 2</div>
-                    <div class="tooltip">
-                        <strong>Algoritmo:</strong> MergeSort<br>
-                        <strong>Tiempo:</strong> 18 ms<br>
-                        <strong>Iteraciones:</strong> 412
+                    <div class="details">
+                        <strong>MergeSort</strong>
                     </div>
                 </div>
 
                 <div class="podio-nivel oro" style="height: 210px;">
                     <div class="podio-puesto">🥇 1</div>
-                    <div class="tooltip">
-                        <strong>Algoritmo:</strong> QuickSort<br>
-                        <strong>Tiempo:</strong> 12 ms<br>
-                        <strong>Iteraciones:</strong> 340
+                    <div class="details">
+                        <strong>QuickSort</strong>
                     </div>
                 </div>
 
                 <div class="podio-nivel bronce" style="height: 100px;">
                     <div class="podio-puesto">🥉 3</div>
-                    <div class="tooltip">
-                        <strong>Algoritmo:</strong> Inserción<br>
-                        <strong>Tiempo:</strong> 45 ms<br>
-                        <strong>Iteraciones:</strong> 1,200
+                    <div class="details">
+                        <strong>Inserción</strong>
                     </div>
                 </div>
             </div>
 
+            <!-- Tabla comparativa de tiempos e iteraciones -->
             <table class="tabla-estandar tabla-ranking">
                 <thead>
                     <tr>
@@ -117,8 +142,10 @@
                 </tbody>
             </table>
         </section>
-        
+
+        <!-- Enlace para regresar al inicio -->
         <a href="index.html" class="back-link">← Volver al inicio</a>
     </div>
 </body>
+
 </html>

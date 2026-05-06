@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <title>Configurar Políticos - APOCO</title>
+    <meta charset="UTF-8">
+
+    <link rel="stylesheet" href="css/config-style.css">
+</head>
+
+<body class="body-centered">
+
+    <!-- Contenedor principal del formulario -->
+    <div class="config-box">
+        <h1>Generar Políticos</h1>
+
+        <!-- Formulario -->
+        <form action="politicos.html" method="GET">
+
+            <!-- Grupo de entrada para la cantidad de registros -->
+            <div class="input-group">
+                <label>Cantidad de registros a generar:</label>
+                <input type="number" name="cantidad" min="1" max="400" required placeholder="Ej: 50">
+            </div>
+
+            <!-- Botón para ejecutar la simulación -->
+            <button type="submit" class="btn-action">Ejecutar Simulación</button>
+        </form>
+
+        <!-- Enlace para regresar a la página principal -->
+        <a href="index.html" class="back-link">← Volver al inicio</a>
+    </div>
+
+</body>
+
+</html>
