@@ -8,8 +8,9 @@ import java.util.Objects;
 
 /**
  * Representa a un Hampón en el sistema, extendiendo la clase {@link Persona}.
- * Incluye información específica del individuo como la cantidad de dinero que está dispuesto a robar.
- * Implementa {@link Comparable} para definir la ordenación por cantidad de dinero a robar.
+ * Incluye información específica del individuo como la cantidad de dinero que
+ * está dispuesto a robar. Implementa {@link Comparable} para definir la
+ * ordenación por cantidad de dinero a robar.
  *
  * @author acurr
  */
@@ -20,9 +21,9 @@ public class Hampon extends Persona implements Comparable<Hampon> {
     /**
      * Construye una nueva instancia de Hampon.
      *
-     * @param nombre        Nombre del Hampon. No debe ser null.
-     * @param edad          Edad estimada (no negativa).
-     * @param dineroARobar  El dinero que está dispuesto a robar.
+     * @param nombre       Nombre del Hampon. No debe ser null.
+     * @param edad         Edad estimada (no negativa).
+     * @param dineroARobar El dinero que está dispuesto a robar.
      *
      * @throws NullPointerException     si {@code nombre} es null.
      * @throws IllegalArgumentException si {@code edad} es negativa.
@@ -88,9 +89,14 @@ public class Hampon extends Persona implements Comparable<Hampon> {
 
     @Override
     public int compareTo(Hampon otroHampon) {
-        // Ejemplo: Ordenar de menor a mayor cantidad de dinero robado
-        return Double.compare(this.dineroARobar, otroHampon.dineroARobar);
 
+        int comparacionDinero = Double.compare(otroHampon.getDineroARobar(), this.getDineroARobar());
+
+        if (comparacionDinero == 0) {
+            return Integer.compare(this.getEdad(), otroHampon.getEdad());
+        }
+
+        return comparacionDinero;
     }
 
 }

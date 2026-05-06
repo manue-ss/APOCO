@@ -91,9 +91,7 @@ public class Corrupto extends Persona implements Comparable<Corrupto> {
 
     @Override
     public int compareTo(Corrupto otroCorrupto) {
-        // Ejemplo: Ordenar de menor a mayor cantidad de dinero robado
-        return Double.compare(this.dineroRobado, otroCorrupto.dineroRobado);
-
+        return Double.compare(otroCorrupto.getDineroRobado(), this.getDineroRobado());
     }
 
 }
