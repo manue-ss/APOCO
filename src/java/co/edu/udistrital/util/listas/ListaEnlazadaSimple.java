@@ -1,11 +1,9 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package co.edu.udistrital.util.listas;
 
 import java.util.NoSuchElementException;
 import co.edu.udistrital.util.algoritmos.EstrategiaOrdenamiento;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 /**
@@ -467,6 +465,19 @@ public class ListaEnlazadaSimple<T> {
      */
     public boolean contiene(T dato) {
         return buscarNodo(dato) != null;
+    }
+
+    public List<T> toStandarList() {
+        List<T> listaEstandar = new ArrayList<>(this.tamanno);
+        Nodo<T> actual = cabeza;
+
+        while (actual != null) {
+            listaEstandar.add(actual.getDato());
+
+            actual = actual.getSiguiente();
+        }
+
+        return listaEstandar;
     }
 
     // --- Ordenación ---
