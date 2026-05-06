@@ -1,6 +1,6 @@
 package co.edu.udistrital.util.generador;
 
-import co.edu.udistrital.util.listas.ListaEnlazadaDoble;
+import co.edu.udistrital.util.listas.ListaEnlazadaSimple;
 import java.util.HashSet;
 import java.util.Random;
 import java.util.Set;
@@ -26,8 +26,8 @@ public abstract class Generador<T> {
         return 18 + random.nextInt(63);
     }
 
-    public ListaEnlazadaDoble<T> generarLista(int cantidad) {
-        ListaEnlazadaDoble<T> lista = new ListaEnlazadaDoble<>();
+    public ListaEnlazadaSimple<T> generarLista(int cantidad) {
+        ListaEnlazadaSimple<T> lista = new ListaEnlazadaSimple<>();
         Set<String> nombresUsados = new HashSet<>();
 
         while (nombresUsados.size() < cantidad) {
